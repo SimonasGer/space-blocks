@@ -878,6 +878,7 @@ GameObject:
   - component: {fileID: 82598323}
   - component: {fileID: 82598325}
   - component: {fileID: 82598324}
+  - component: {fileID: 82598327}
   m_Layer: 0
   m_Name: Falling
   m_TagString: Untagged
@@ -975,7 +976,7 @@ MonoBehaviour:
       - {x: -1, y: 0, z: 0}
       - {x: 0, y: -1, z: 0}
       name: Lbl
-  spawnPoint: {x: -1, y: 0, z: 0}
+  spawnPoint: {x: -1, y: 6, z: 0}
   falling: {fileID: 82598323}
   colors:
   - {fileID: 11400000, guid: ebea1a75a2fad104ba149e3b9eb0f86e, type: 2}
@@ -1050,6 +1051,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 820705015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &82598327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82598322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 219d2b29bef185046897226c6862cd6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  falling: {fileID: 82598323}
+  frame: {fileID: 1675000499}
+  inactive: {fileID: 529499620}
+  active: {fileID: 730361571}
+  gameController: {fileID: 820705013}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1149,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1405,6 +1423,7 @@ GameObject:
   - component: {fileID: 730361573}
   - component: {fileID: 730361571}
   - component: {fileID: 730361572}
+  - component: {fileID: 730361574}
   m_Layer: 0
   m_Name: Active
   m_TagString: Untagged
@@ -1517,6 +1536,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 820705015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &730361574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730361570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93268c62f6d54e46bf780d5a8db773e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: {fileID: 730361571}
+  inactive: {fileID: 529499620}
+  frame: {fileID: 1675000499}
+  gameController: {fileID: 820705013}
 --- !u!1 &820705011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,6 +1599,10 @@ MonoBehaviour:
   falling: {fileID: 82598323}
   active: {fileID: 730361571}
   inactive: {fileID: 529499620}
+  state: 0
+  spawnBlocks: {fileID: 82598324}
+  fallingBlocks: {fileID: 82598327}
+  activeBlocks: {fileID: 730361574}
 --- !u!156049354 &820705014
 Grid:
   m_ObjectHideFlags: 0
