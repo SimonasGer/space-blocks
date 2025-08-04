@@ -879,6 +879,7 @@ GameObject:
   - component: {fileID: 82598325}
   - component: {fileID: 82598324}
   - component: {fileID: 82598327}
+  - component: {fileID: 82598328}
   m_Layer: 0
   m_Name: Falling
   m_TagString: Untagged
@@ -1068,6 +1069,54 @@ MonoBehaviour:
   inactive: {fileID: 529499620}
   active: {fileID: 730361571}
   gameController: {fileID: 820705013}
+--- !u!114 &82598328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82598322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67581d92d5b170d45b17ec7fef4c0f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  falling: {fileID: 82598323}
+  inactive: {fileID: 529499620}
+  frame: {fileID: 1675000499}
+  inputAction:
+    m_Name: Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: e5ddd9c3-f0b5-4787-bbbe-5f8e9c1f7cd1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: MoveKeyboard
+      m_Id: 0587c782-517c-4330-bb05-c95588cf6048
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: a82caa0d-6579-4d8d-a69c-662112eeb8f0
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: d9f2c61d-a65a-463c-956c-51809f83c89a
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 8
+    m_Flags: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

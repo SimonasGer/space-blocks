@@ -6,7 +6,7 @@ public class FallingBlocks : MonoBehaviour
 {
     public Tilemap falling, frame, inactive, active;
     public GameController gameController;
-    public
+    public bool fast = false;
     void FallBlock(Vector3Int position, TileBase tile)
     {
         falling.SetTile(position + Vector3Int.down, tile);
@@ -21,6 +21,7 @@ public class FallingBlocks : MonoBehaviour
             if (tile != null && CheckGround(position + Vector3Int.down))
             {
                 ground = true;
+                fast = false;
             }
 
         }
@@ -34,7 +35,14 @@ public class FallingBlocks : MonoBehaviour
                     FallBlock(position, tile);
                 }
             }
-            gameController.state = GameController.States.fall;
+            if (fast)
+            {
+                FallBlocks();
+            }
+            else
+            {
+                gameController.state = GameController.States.fall;
+            }
         }
         else
         {

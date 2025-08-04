@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     public SpawnBlocks spawnBlocks;
     public FallingBlocks fallingBlocks;
     public ActiveBlocks activeBlocks;
+    public InactiveBlocks inactiveBlocks;
+    public DeleteBlocks deleteBlocks;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,13 +43,12 @@ public class GameController : MonoBehaviour
                 Debug.Log("Active state");
                 break;
             case States.inactive:
-                // inactive
+                inactiveBlocks.FallAll();
                 state = States.delete;
                 Debug.Log("Inactive state");
                 break;
             case States.delete:
-                // delete
-                state = States.spawn;
+                deleteBlocks.CheckMatches();
                 Debug.Log("Delete state");
                 break;
             default:
