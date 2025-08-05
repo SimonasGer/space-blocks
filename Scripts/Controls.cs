@@ -89,7 +89,7 @@ public class Controls : MonoBehaviour
     }
     void ShuffleKeyboard()
     {
-        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current != null && Keyboard.current.wKey.wasPressedThisFrame)
         {
             Shuffle();
         }

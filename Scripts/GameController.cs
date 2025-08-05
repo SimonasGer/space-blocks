@@ -13,19 +13,26 @@ public class GameController : MonoBehaviour
     public ActiveBlocks activeBlocks;
     public InactiveBlocks inactiveBlocks;
     public DeleteBlocks deleteBlocks;
+    public Save save;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    float TickSpeed()
+    {
+        return Mathf.Max(0.25f, 1.0f - (deleteBlocks.score / 1000f));
+        
+    }
     void Start()
     {
-        InvokeRepeating(nameof(GameStates), 1f, 1f);
+        InvokeRepeating(nameof(GameStates), 1f, TickSpeed());
     }
 
     void GameStates()
     {
+        Debug.Log("Tick speed:" + TickSpeed());
         switch (state)
         {
             case States.start:
-                CheckSave();
+                save.AutoLoad();
                 state = States.spawn;
                 Debug.Log("Start state");
                 break;
@@ -55,10 +62,5 @@ public class GameController : MonoBehaviour
                 state = States.start;
                 break;
         }
-    }
-
-    void CheckSave()
-    {
-
     }
 }

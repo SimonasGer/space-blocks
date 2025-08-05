@@ -7,6 +7,9 @@ public class DeleteBlocks : MonoBehaviour
 {
     public Tilemap inactive;
     public GameController gameController;
+    public int score = 0;
+    public Score showScore;
+    public int multiplier = 1;
     public void CheckMatches()
     {
         HashSet<Vector3Int> toDelete = new();
@@ -27,10 +30,13 @@ public class DeleteBlocks : MonoBehaviour
         foreach (var pos in toDelete)
         {
             inactive.SetTile(pos, null);
+            score += multiplier;
+            showScore.UpdateScore(score);
         }
 
         if (toDelete.Count > 0)
         {
+            multiplier++;
             Debug.Log($"Cleared {toDelete.Count} tiles!");
             gameController.state = GameController.States.inactive;
         }
